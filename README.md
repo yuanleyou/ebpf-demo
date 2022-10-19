@@ -14,6 +14,6 @@
         * [08-get_net_ns](eBPF-BCC/bcc-prog/08-get_net_ns) - 获取网络命名空间的例子
         * [09-trace_pkt](eBPF-BCC/bcc-prog/09-trace_pkt) - 动静结合跟踪网络包的例子
     * [Dockerfile](eBPF-BCC/Dockerfile) - 容器测试环境基础镜像Dockerfile文件
-    * [run.sh](eBPF-BCC/run.sh) - 快速启动测试容器环境脚本, `$WORKSPACE` 为当前项目父路径
+    * [run.sh](eBPF-BCC/run.sh) - 快速启动测试容器环境脚本
 * eBPF-go 使用Cilium和Cloudflare维护的一个纯Go语言编写的库学习实例
 
