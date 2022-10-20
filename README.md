@@ -15,7 +15,12 @@
         * [09-trace_pkt](eBPF-BCC/bcc-prog/09-trace_pkt) - 动静结合跟踪网络包的例子
     * [Dockerfile](eBPF-BCC/Dockerfile) - 容器测试环境基础镜像Dockerfile文件
     * [run.sh](eBPF-BCC/run.sh) - 快速启动测试容器环境脚本
-* eBPF-go 使用Cilium和Cloudflare维护的一个纯Go语言编写的库学习实例
+* eBPF-go 使用Cilium和Cloudflare维护的一个纯Go语言编写的库的学习实例
+
+* eBPF-C 使用libbpf库的学习实例
+
+   **在编译该目录下的项目时需要将[libbpf](https://github.com/libbpf/libbpf.git)源码拉取到eBPF-C同级目录才能编译**
+
 
 ## 跟踪点查询
 
