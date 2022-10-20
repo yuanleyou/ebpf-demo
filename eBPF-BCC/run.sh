@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# sudo apt-get install bpfcc-tools linux-headers-$(uname -r) # 第一次在主机上执行一次即可
 # docker build -t bcc-tools:v1 .  # 构建测试环境基础镜像，第一次的时候运行
 
 # shellcheck disable=SC2046
