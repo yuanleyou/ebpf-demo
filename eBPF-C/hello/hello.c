@@ -37,8 +37,7 @@ int main(int argc, char **argv)
 		goto cleanup;
 	}
 
-	printf
-	    ("Successfully started! Tracing /sys/kernel/debug/tracing/trace_pipe...\n");
+	printf("Successfully started! Tracing /sys/kernel/debug/tracing/trace_pipe...\n");
 
 	system("cat /sys/kernel/debug/tracing/trace_pipe");
 
