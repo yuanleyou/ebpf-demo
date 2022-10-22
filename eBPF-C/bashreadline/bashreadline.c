@@ -31,14 +31,20 @@ static void handle_event(void *ctx, int cpu, void *data, __u32 data_size)
 {
 	struct str_t *e = (struct str_t *)data;
 	struct tm *tm;
+	char path[64];
 	char ts[16];
 	time_t t;
+
+    int ret = get_pid_binary_path(e->pid, path, 64);
+    if (ret < 0){
+        printf("get path error!");
+    }
 
 	time(&t);
 	tm = localtime(&t);
 	strftime(ts, sizeof(ts), "%H:%m:%S", tm);
 
-	printf("%-9s %-7d %s\n", ts, e->pid, e->str);
+	printf("%-9s %-7d %-7d %-16s %s\n", ts, e->pid, e->ppid, path, e->str);
 }
 
 static void handle_lost_events(void *ctx, int cpu, __u64 lost_cnt)
@@ -82,7 +88,7 @@ int main(int argc, char **argv)
 		goto cleanup;
 	}
 
-	printf("%-9s %-7s %s\n", "TIME", "PID", "COMMAND");
+	printf("%-9s %-7s %-7s %-16s %s\n", "TIME", "PID", "PPID", "PATH", "COMMAND");
 
 	/* Main polling loop */
 	while ((err = perf_buffer__poll(pb, PERF_POLL_TIMEOUT_MS)) >= 0) ;

@@ -4,6 +4,7 @@
 #include "vmlinux.h"
 #include <bpf/bpf_helpers.h>
 #include <bpf/bpf_tracing.h>
+#include <bpf/bpf_core_read.h>
 #include "bashreadline.h"
 
 #define TASK_COMM_LEN 16
@@ -27,6 +28,9 @@ int BPF_KRETPROBE(printret, const void *ret)
 	bpf_get_current_comm(&comm, sizeof(comm));
 	pid = bpf_get_current_pid_tgid() >> 32;
 	data.pid = pid;
+
+	struct task_struct *task = (struct task_struct *) bpf_get_current_task();
+	data.ppid = (pid_t) BPF_CORE_READ(task, real_parent, tgid);
 	bpf_probe_read_user(&data.str, sizeof(data.str), ret);
 
 	bpf_perf_event_output(ctx, &events, BPF_F_CURRENT_CPU, &data,

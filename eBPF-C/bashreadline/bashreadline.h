@@ -8,6 +8,7 @@
 
 struct str_t {
 	__u32 pid;
+	pid_t ppid;
 	char str[MAX_LINE_SIZE];
 };
 
