@@ -47,7 +47,7 @@ static void print_args(const struct event *e)
 void handle_event(void *ctx, int cpu, void *data, __u32 data_sz)
 {
 	const struct event *e = data;
-	printf("%-12u %-12u %-12s %-16s %-6d %-6d %3d ", e->net_ns, e->uts_ns, e->container, e->comm, e->pid, e->ppid, e->retval);
+	printf("%-12u %-12u %-12s %-6s %-6d %-6d %-3d", e->net_ns, e->uts_ns, e->container, e->comm, e->pid, e->ppid, e->retval);
 	print_args(e);
 	putchar('\n');
 }
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 		goto cleanup;
 	}
 
-	printf("%-16s %-6s %-6s %3s %s\n", "COMM", "PID", "PPID", "RET", "ARGS");
+	printf("%-12s %-12s %-12s %-6s %-6s %-6s %-3s %s\n", "NETNS", "UTSNS", "CONTAINER", "COMMAND", "PID", "PPID", "RET", "ARGS");
 
 	/* Main polling loop */
 	while ((err = perf_buffer__poll(pb, 100)) >= 0) ;
