@@ -56051,7 +56051,7 @@ struct iphdr {
 	__be16 frag_off;
 	__u8 ttl;
 	__u8 protocol;
-	__sum16 check;
+	__sum16 check__be32;
 	__be32 saddr;
 	__be32 daddr;
 };
