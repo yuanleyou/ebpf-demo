@@ -1,7 +1,7 @@
 APPS = container_execsnoop_ppid
 bpftool = $(shell which bpftool || ../tools/bpftool)
 LIBBPF_SRC := $(abspath ../../libbpf/src)
-LIBBPF_OBJ := $(abspath ../ibbpf/libbpf.a)
+LIBBPF_OBJ := $(abspath ../libbpf/libbpf.a)
 INCLUDES := -I../libbpf/usr/include -I../../libbpf/include/uapi -I/usr/include/x86_64-linux-gnu -I.
 
 .PHONY: $(APPS)
