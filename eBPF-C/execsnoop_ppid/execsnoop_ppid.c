@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 		goto cleanup;
 	}
 
-	printf("%-16s %-6s %-6s %3s %s\n", "COMM", "PID", "PPID", "RET", "ARGS");
+	printf("%-16s %-6s %-6s %-3s %s\n", "COMM", "PID", "PPID", "RET", "ARGS");
 
 	/* Main polling loop */
 	while ((err = perf_buffer__poll(pb, 100)) >= 0) ;

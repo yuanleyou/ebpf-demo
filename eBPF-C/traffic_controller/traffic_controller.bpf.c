@@ -33,8 +33,7 @@ int tc_egress(struct __sk_buff *skb)
 	}
 	//bpf_printk("Tracing TCP packet %ld => %ld\n", iph->saddr, iph->daddr);
 
-	struct tcphdr *tcp =
-	    (data + sizeof(struct ethhdr) + sizeof(struct iphdr));
+	struct tcphdr *tcp = (data + sizeof(struct ethhdr) + sizeof(struct iphdr));
 	if (tcp + 1 > (struct tcphdr *)data_end) {
 		return TC_ACT_OK;
 	}
