@@ -18,8 +18,15 @@
 * eBPF-go 使用Cilium和Cloudflare维护的一个纯Go语言编写的库的学习实例
 
 * eBPF-C 使用libbpf库的学习实例
-
-   **在编译该目录下的项目时需要将[libbpf](https://github.com/libbpf/libbpf.git)源码拉取到eBPF-C同级目录才能编译**
+    * [hello](eBPF-C/hello/) - 获取当前执行进程的pid和进程名称以及返回值的例子
+    * [execsnoop](eBPF-C/execsnoop/) - 获取当前执行进程的pid,进程名称,进程执行参数以及返回值
+    * [execsnoop_ppid](eBPF-C/execsnoop_ppid/) - 获取当前执行进程的pid,ppid,进程名称,进程执行参数以及返回值
+    * [container_execsnoop_ppid](eBPF-C/container_execsnoop_ppid/) - 获取当前执行进程所在的容器网络命名空间ID、容器ID、容器名称、执行命令、pid、ppid、返回值和参数
+    * [bashreadline](eBPF-C/bashreadline/) - 获取当前bash执行的命令time,pid、ppid、path
+    * [xdp](eBPF-C/xdp/) - 获取网络包的大小
+    * [traffic_controller](eBPF-C/traffic_controller/) - 将TCP目的端口为80的网络包丢弃
+  
+**在编译该目录下的项目时需要将[libbpf](https://github.com/libbpf/libbpf.git)源码拉取到eBPF-C同级目录才能编译**
 
 
 ## 跟踪点查询
